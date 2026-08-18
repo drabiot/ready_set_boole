@@ -6,7 +6,7 @@
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 18:01:43 by tchartie          #+#    #+#             */
-/*   Updated: 2026/08/18 18:43:24 by tchartie         ###   ########.fr       */
+/*   Updated: 2026/08/18 18:51:52 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "utils.hpp"
 
+// Time complexity:  O(1)
+// Space complexity: O(1)
 inline int adder(int a, int b) {
 	while (b != 0) {
 		int carry = a & b;
