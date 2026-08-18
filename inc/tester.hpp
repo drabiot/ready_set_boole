@@ -6,7 +6,7 @@
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 18:00:38 by tchartie          #+#    #+#             */
-/*   Updated: 2026/08/18 18:10:39 by tchartie         ###   ########.fr       */
+/*   Updated: 2026/08/18 18:26:11 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@
 # include "boollib.hpp"
 
 //Exercice 00
-void	adderTester(int a, int b);
+void	adderTester(void);
 
 #endif //TESTER_HPP
