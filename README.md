@@ -25,13 +25,13 @@ This project is aimed around math and is an introduction to Boolean Algebra.
 Clone the project
 
 ```bash
-  git clone https://github.com/drabiot/ready_set_bool.git
+  git clone https://github.com/drabiot/ready_set_boole.git
 ```
 
 Include the lib
 
 ```bash
-  ./matrix/inc/boollib.hpp
+  ./ready_set_boole/inc/boollib.hpp
 ```
 
 ## Run Locally the Tester
@@ -39,13 +39,13 @@ Include the lib
 Clone the project
 
 ```bash
-  git clone https://github.com/drabiot/ready_set_bool.git
+  git clone https://github.com/drabiot/ready_set_boole.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd ready_set_bool
+  cd ready_set_boole
 ```
 
 Compile the project
