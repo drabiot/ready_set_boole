@@ -6,7 +6,7 @@
 #    By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/18 17:57:42 by tchartie          #+#    #+#              #
-#    Updated: 2026/08/18 18:50:13 by tchartie         ###   ########.fr        #
+#    Updated: 2026/08/19 17:59:01 by tchartie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ INC_DIR				:=	$(addprefix -I, $(INC_DIR))
 DIR					=	src/
 NAMES				=	main.cpp \
 						ex00Tester.cpp \
-						#ex01Tester.cpp \
+						ex01Tester.cpp \
 						#ex02Tester.cpp \
 						#ex03Tester.cpp \
 						#ex04Tester.cpp \
