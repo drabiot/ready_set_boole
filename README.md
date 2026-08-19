@@ -18,6 +18,7 @@ This project is aimed around math and is an introduction to Boolean Algebra.
 - [Functions](#functions)
 - [Documentation](#documentation)
   - [Adder](#adder)
+  - [Multiplier](#multiplier)
 - [Sources](#sources)
 
 ## Use the Library
@@ -66,6 +67,7 @@ Open the project
 | Function | Description |
 | -------- | ----------- |
 | [Adder](#adder) | Add two natural numbers |
+| [Multiplier](#multiplier) | Multiply two natural numbers |
 
 ## Documentation
 
@@ -108,6 +110,23 @@ Use of &(bitwise AND), ^(bitwise XOR).
 ```
 
 The idea is to mimic the manual process of binary addition, where we calculate the carry and add it to the sum of a and b. Using bitwise operations, the XOR (a ^ b) gives the sum without carry, and the AND (a & b) identifies the carry, which is then shifted left. The recursion continues until the carry becomes 0, ensuring complete addition.
+
+### MULTIPLIER
+Multiply two natural numbers together an return the value.
+
+```cpp
+int	multiplier(int a, int b);
+```
+
+| Time complexity | Space complexity |
+|---|---|
+| O(1) | O(1) |
+
+```cpp
+res = multiplier(14, 6); // res = 84
+```
+
+Use of &(bitwise AND).
 
 ## Sources
 
