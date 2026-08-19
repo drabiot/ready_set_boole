@@ -102,8 +102,7 @@ Use of &(bitwise AND), ^(bitwise XOR).
 \begin{array}{r cccc}
 \text{\tiny (retenues)} & & \mathbf{1} & & \\
 & 1 & 0 & 1 & 0 \\
-+ & 0 & 0 & 1 & 0 \\
-\cline{1-5}
++ & \underline{0} & \underline{0} & \underline{1} & \underline{0} \\
 = & 1 & 1 & 0 & 0
 \end{array}
 ```
