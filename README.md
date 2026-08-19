@@ -114,3 +114,4 @@ The idea is to mimic the manual process of binary addition, where we calculate t
 - Bitwise operation explained https://en.wikipedia.org/wiki/Bitwise_operation
 - Calculate the sum of two natural zith only bitwise operator https://www.geeksforgeeks.org/dsa/bitwise-recursive-addition-two-integers/
 - Compute multiplication with the Russian peasent algorithm https://www.geeksforgeeks.org/dsa/russian-peasant-multiply-two-numbers-using-bitwise-operators/
+- Compute Gray code of a natural number https://recognitionphysics.org/encyclopedia/patterns-gray-code-axioms-gray-code-one-bit-property/
