@@ -100,9 +100,10 @@ Use of &(bitwise AND), ^(bitwise XOR).
 
 ```math
 \begin{array}{r cccc}
-\text{\tiny (retenues)} & & \mathbf{1} & & \\[2pt]
+\text{\tiny (retenues)} & & \mathbf{1} & & \\
 & 1 & 0 & 1 & 0 \\
-+ & 0 & 0 & 1 & 0 \\[4pt]
++ & 0 & 0 & 1 & 0 \\
+\multicolumn{5}{r}{\rule{4.5em}{0.5pt}} \\
 = & 1 & 1 & 0 & 0
 \end{array}
 ```
