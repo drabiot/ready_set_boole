@@ -1,11 +1,11 @@
 <div align="center">
-  <h1> 🏁 ready set bool
+  <h1> 🏁 ready set boole
   </h1>
 </div>
 
 ---
 
-Ready set bool is a 42 project where you have to create easy operation only using bitwise operator.
+Ready set boole is a 42 project where you have to create easy operation only using bitwise operator.
 
 This project is aimed around math and is an introduction to Boolean Algebra.
 
