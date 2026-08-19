@@ -103,7 +103,7 @@ Use of &(bitwise AND), ^(bitwise XOR).
 \text{\tiny (retenues)} & & \mathbf{1} & & \\
 & 1 & 0 & 1 & 0 \\
 + & 0 & 0 & 1 & 0 \\
-\multicolumn{5}{r}{\rule{4.5em}{0.5pt}} \\
+\cline{1-5}
 = & 1 & 1 & 0 & 0
 \end{array}
 ```
