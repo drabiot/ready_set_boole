@@ -100,7 +100,7 @@ Use of &(bitwise AND), ^(bitwise XOR).
 
 ```math
 \begin{array}{r cccc}
-\text{\tiny (retenues)} & & \mathbf{1} & & \\
+\text{\tiny (carry)} & & \mathbf{1} & & \\
 & 1 & 0 & 1 & 0 \\
 + & \underline{0} & \underline{0} & \underline{1} & \underline{0} \\
 = & 1 & 1 & 0 & 0
