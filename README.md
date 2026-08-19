@@ -87,13 +87,25 @@ sum = adder(21, 12); // sum = 33
 Use of &(bitwise AND), ^(bitwise XOR).
 
 ```math
-0 + 0 =  0 \\
-0 + 1 =  1 \\
+0 + 0 =  0
+```
+
+```math
+0 + 1 =  1
+```
+
+```math
 1 + 1 = 10
 ```
 
 ```math
-1010 + 0010 = 1100
+\begin{array}{r cccc}
+\text{\tiny (retenues)} & & \mathbf{1} & & \\
+& 1 & 0 & 1 & 0 \\
++ & 0 & 0 & 1 & 0 \\
+\hline
+= & 1 & 1 & 0 & 0
+\end{array}
 ```
 
 The idea is to mimic the manual process of binary addition, where we calculate the carry and add it to the sum of a and b. Using bitwise operations, the XOR (a ^ b) gives the sum without carry, and the AND (a & b) identifies the carry, which is then shifted left. The recursion continues until the carry becomes 0, ensuring complete addition.
@@ -101,4 +113,5 @@ The idea is to mimic the manual process of binary addition, where we calculate t
 ## Sources
 
 - Bitwise operation explained https://en.wikipedia.org/wiki/Bitwise_operation
-- Calculate the sum of two natural zith only bitwise operator https://www.geeksforgeeks.org/dsa/bitwise-recursive-addition-two-integers/ 
+- Calculate the sum of two natural zith only bitwise operator https://www.geeksforgeeks.org/dsa/bitwise-recursive-addition-two-integers/
+- Compute multiplication with the Russian peasent algorithm https://www.geeksforgeeks.org/dsa/russian-peasant-multiply-two-numbers-using-bitwise-operators/
