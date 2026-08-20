@@ -20,6 +20,7 @@ This project is aimed around math and is an introduction to Boolean Algebra.
   - [Adder](#adder)
   - [Multiplier](#multiplier)
   - [Gray Code](#gray-code)
+  - [Boolean Evaluation](#boolean-evaluation)
 - [Sources](#sources)
 
 ## Use the Library
@@ -70,6 +71,7 @@ Open the project
 | [Adder](#adder) | Add two natural numbers |
 | [Multiplier](#multiplier) | Multiply two natural numbers |
 | [Gray Code](#gray-code) | Generate the gray code of a natural number |
+| [Boolean Evaluation](#boolean-evaluation) | Return the result of a reverse polish notation binary formula |
 
 ## Documentation
 
@@ -133,7 +135,7 @@ Use of &(bitwise AND).
 The idea is to break multiplication into a series of additions using the Russian Peasant Algorithm. Instead of directly multiplying a and b, we repeatedly halve b and double a, leveraging the fact that multiplication can be rewritten as repeated addition. If b is odd at any step, we add a to the result since that part of the multiplication cannot be handled by doubling alone. This process continues until b becomes zero.
 
 ### GRAY CODE
-Generate the gray code of a natural number
+Generate the gray code of a natural number.
 
 ```cpp
 int	gray_code(int n);
@@ -144,10 +146,31 @@ int	gray_code(int n);
 | O(1) | O(1) |
 
 ```cpp
-println!("{}", gray_code(6));	//5
+std::cout << gray_code(6) << std::endl;	//5
 ```
 
 Use of ^(bitwise XOR).
+
+### BOOLEAN EVALUATION
+Return the result of a reverse polish notation binary formula.
+
+```cpp
+bool	eval_formula(const str &formula);
+```
+
+| Time complexity | Space complexity |
+|---|---|
+| O(1) | O(1) |
+
+```cpp
+std::cout << eval_formula("10&") << std::endl;		// false
+std::cout << eval_formula("10|") << std::endl;		// true
+std::cout << eval_formula("11>") << std::endl;		// true
+std::cout << eval_formula("10=") << std::endl;		// false
+std::cout << eval_formula("1011||=") << std::endl;	// true
+std::cout << eval_formula("1!") << std::endl;		// false
+std::cout << eval_formula("1011||=!") << std::endl;	// false
+```
 
 ## Sources
 
