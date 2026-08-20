@@ -21,6 +21,7 @@ This project is aimed around math and is an introduction to Boolean Algebra.
   - [Multiplier](#multiplier)
   - [Gray Code](#gray-code)
   - [Boolean Evaluation](#boolean-evaluation)
+  - [Truth Table](#truth-table)
 - [Sources](#sources)
 
 ## Use the Library
@@ -72,6 +73,7 @@ Open the project
 | [Multiplier](#multiplier) | Multiply two natural numbers |
 | [Gray Code](#gray-code) | Generate the gray code of a natural number |
 | [Boolean Evaluation](#boolean-evaluation) | Return the result of a reverse polish notation binary formula |
+| [Truth Table](#truth-table) | Print the truth table of a reverse polish notation formula |
 
 ## Documentation
 
@@ -172,9 +174,37 @@ std::cout << eval_formula("1!") << std::endl;		// false
 std::cout << eval_formula("1011||=!") << std::endl;	// false
 ```
 
+### TRUTH TABLE
+Print the truth table of a reverse polish notation formula.
+
+```cpp
+void	print_truth_table(const str &formula);
+```
+
+| Time complexity | Space complexity |
+|---|---|
+| O(2^n) | O(n) |
+
+```cpp
+print_truth_table("AB&C|")
+
+// | A | B | C | = |
+// |---|---|---|---|
+// | 0 | 0 | 0 | 0 |
+// | 0 | 0 | 1 | 1 |
+// | 0 | 1 | 0 | 0 |
+// | 0 | 1 | 1 | 1 |
+// | 1 | 0 | 0 | 0 |
+// | 1 | 0 | 1 | 1 |
+// | 1 | 1 | 0 | 1 |
+// | 1 | 1 | 1 | 1 |
+```
+
 ## Sources
 
 - Bitwise operation explained https://en.wikipedia.org/wiki/Bitwise_operation
 - Calculate the sum of two natural zith only bitwise operator https://www.geeksforgeeks.org/dsa/bitwise-recursive-addition-two-integers/
 - Compute multiplication with the Russian peasent algorithm https://www.geeksforgeeks.org/dsa/russian-peasant-multiply-two-numbers-using-bitwise-operators/
 - Compute Gray code of a natural number https://recognitionphysics.org/encyclopedia/patterns-gray-code-axioms-gray-code-one-bit-property/
+- Learn what's a truth table https://sites.millersville.edu/bikenaga/math-proof/truth-tables/truth-tables.html
+- Truth table generator https://web.stanford.edu/class/cs103/tools/truth-table-tool/
