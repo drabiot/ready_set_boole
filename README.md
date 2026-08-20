@@ -19,6 +19,7 @@ This project is aimed around math and is an introduction to Boolean Algebra.
 - [Documentation](#documentation)
   - [Adder](#adder)
   - [Multiplier](#multiplier)
+  - [Gray Code](#gray-code)
 - [Sources](#sources)
 
 ## Use the Library
@@ -68,6 +69,7 @@ Open the project
 | -------- | ----------- |
 | [Adder](#adder) | Add two natural numbers |
 | [Multiplier](#multiplier) | Multiply two natural numbers |
+| [Gray Code](#gray-code) | Generate the gray code of a natural number |
 
 ## Documentation
 
@@ -127,6 +129,25 @@ res = multiplier(14, 6); // res = 84
 ```
 
 Use of &(bitwise AND).
+
+The idea is to break multiplication into a series of additions using the Russian Peasant Algorithm. Instead of directly multiplying a and b, we repeatedly halve b and double a, leveraging the fact that multiplication can be rewritten as repeated addition. If b is odd at any step, we add a to the result since that part of the multiplication cannot be handled by doubling alone. This process continues until b becomes zero.
+
+### GRAY CODE
+Generate the gray code of a natural number
+
+```cpp
+int	gray_code(int n);
+```
+
+| Time complexity | Space complexity |
+|---|---|
+| O(1) | O(1) |
+
+```cpp
+println!("{}", gray_code(6));	//5
+```
+
+Use of ^(bitwise XOR).
 
 ## Sources
 
