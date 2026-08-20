@@ -160,7 +160,7 @@ bool	eval_formula(const str &formula);
 
 | Time complexity | Space complexity |
 |---|---|
-| O(1) | O(1) |
+| O(n) | O(n) |
 
 ```cpp
 std::cout << eval_formula("10&") << std::endl;		// false

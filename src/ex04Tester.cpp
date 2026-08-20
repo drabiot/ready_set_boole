@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ex04Tester.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/18 18:06:06 by tchartie          #+#    #+#             */
-/*   Updated: 2026/08/20 20:47:42 by tchartie         ###   ########.fr       */
+/*   Created: 2026/08/20 17:25:53 by tchartie          #+#    #+#             */
+/*   Updated: 2026/08/20 20:49:53 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "boollib.hpp"
 #include "tester.hpp"
 
-int	main(void) {
-	try {
-		adderTester();
-		multiplierTester();
-		grayCodeTester();
-		booleanEvaluationTester();
-		//badBooleanEvaluationTester();
-		truthTableTester();
-		//badTruthTableTester();
-	} catch (const std::exception &e) {
-		ERROR RED AND e.what() CENDL;
-	}
-	return (0);
+void	truthTableTester() {
+	NLINE;
+	PRINT RED "TRUTH TABLE TESTER" CENDL;
+	NLINE;
+	PRINT MAGENTA "   (A ∧ B) ∨ C" CENDL;
+	print_truth_table("AB&C|");
+	NLINE;
+	PRINT MAGENTA " (A ∧ B) ∨ A" CENDL;
+	print_truth_table("AB&A|");
+}
+
+void	badTruthTableTester() {
+	NLINE;
+	PRINT RED "TRUTH TABLE TESTER" CENDL;
+	NLINE;
+	print_truth_table("10&1|");
 }

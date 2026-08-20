@@ -6,7 +6,7 @@
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 18:01:43 by tchartie          #+#    #+#             */
-/*   Updated: 2026/08/20 18:58:58 by tchartie         ###   ########.fr       */
+/*   Updated: 2026/08/20 20:46:04 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ inline int	gray_code(int n) {
 	return (n ^ (n >> 1));
 }
 
-// Time complexity:  O(1)
-// Space complexity: O(1)
+// Time complexity:  O(n)
+// Space complexity: O(n)
 inline bool	eval_formula(const str &formula) {
 	std::stack<bool>	stack;
 	const str			sign("!&|^>=");
@@ -106,6 +106,42 @@ inline bool	eval_formula(const str &formula) {
 		throw std::invalid_argument("Invalid operation sequence");
 
 	return (stack.top());
+}
+
+// Time complexity:  O(2^n)
+// Space complexity: O(n)
+inline void	print_truth_table(const str &formula) {
+	if (formula.find_first_not_of("ABCDEFGHIJKLMNOPQRSTUVWXY!&|^>=") != formula.npos)
+		throw std::invalid_argument("Input invalid");
+	
+	std::vector<char> vars;
+	for (char c : formula)
+		if (c >= 'A' && c <= 'Z') 
+			if (std::find(vars.begin(), vars.end(), c) == vars.end())
+				vars.push_back(c);
+
+	size_t	num_vars = vars.size();
+	size_t	num_rows = 1 << num_vars;
+
+	for (size_t i = 0; i < num_vars; ++i)
+		PRINT CYAN "|" MAGENTA " " AND vars[i] AND " " BASE_COLOR;
+	PRINT CYAN "|" RED " = " CYAN "|" CENDL;
+	for (size_t i = 0; i < num_vars + 1; ++i)
+		PRINT CYAN "|---" BASE_COLOR;
+	PRINT CYAN "|" CENDL;
+
+	for (size_t row = 0; row < num_rows; ++row) {
+		str	binary_formula = formula;
+
+		for (size_t i = 0; i < num_vars; ++i) {
+			char	bit_val = ((row >> (num_vars - 1 - i)) & 1) ? '1' : '0';
+
+			PRINT CYAN "| " BLUE AND bit_val AND " " AND BASE_COLOR;
+			std::replace(binary_formula.begin(), binary_formula.end(), vars[i], bit_val);
+		}
+		
+		PRINT CYAN "| " MAGENTA AND eval_formula(binary_formula) AND CYAN " |" CENDL;
+	}
 }
 
 #endif //BOOLLIB_HPP
