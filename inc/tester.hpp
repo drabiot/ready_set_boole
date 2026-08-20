@@ -6,7 +6,7 @@
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 18:00:38 by tchartie          #+#    #+#             */
-/*   Updated: 2026/08/19 18:01:43 by tchartie         ###   ########.fr       */
+/*   Updated: 2026/08/20 17:25:31 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,8 @@ void	adderTester(void);
 
 //Exercice 01
 void	multiplierTester(void);
+
+//Exercice 02
+void	grayCodeTester(void);
 
 #endif //TESTER_HPP

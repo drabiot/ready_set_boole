@@ -6,7 +6,7 @@
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 18:01:43 by tchartie          #+#    #+#             */
-/*   Updated: 2026/08/19 18:04:18 by tchartie         ###   ########.fr       */
+/*   Updated: 2026/08/20 17:36:31 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,12 @@ inline int multiplier(int a, int b) {
 		b = b >> 1;
 	}
 	return (res);
+}
+
+// Time complexity:  O(1)
+// Space complexity: O(1)
+inline int gray_code(int n) {
+	return (n ^ (n >> 1));
 }
 
 #endif //BOOLLIB_HPP
