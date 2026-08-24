@@ -22,6 +22,7 @@ This project is aimed around math and is an introduction to Boolean Algebra.
   - [Gray Code](#gray-code)
   - [Boolean Evaluation](#boolean-evaluation)
   - [Truth Table](#truth-table)
+  - [Negation Normal Form](#negation-normal-form)
 - [Sources](#sources)
 
 ## Use the Library
@@ -74,6 +75,7 @@ Open the project
 | [Gray Code](#gray-code) | Generate the gray code of a natural number |
 | [Boolean Evaluation](#boolean-evaluation) | Return the result of a reverse polish notation binary formula |
 | [Truth Table](#truth-table) | Print the truth table of a reverse polish notation formula |
+| [Negation Normal Form](#negation-normal-form) | Return the negation normal form of a reverse polish notation formula. |
 
 ## Documentation
 
@@ -199,6 +201,32 @@ print_truth_table("AB&C|")
 // | 1 | 1 | 0 | 1 |
 // | 1 | 1 | 1 | 1 |
 ```
+
+### NEGATION NORMAL FORM
+Return the negation normal form of a reverse polish notation formula.
+
+```cpp
+str	negation_normal_form(const str &formula);
+```
+
+| Time complexity | Space complexity |
+|---|---|
+| O(?) | O(?) |
+
+```cpp
+nnf = negation_normal_form("AB&!")	// nnf = A!B!|
+nnf = negation_normal_form("AB|!")	// nnf = A!B!&
+```
+
+| Symbol | Math Equivalent | Negation Equivalent |
+| -------- | ----------------- | --------------------- |
+| A...Z | A...Z | ¬A...¬Z |
+| !A  | ¬A | A |
+| A &  B | A ∧  B | A ∨ B |
+| A \| B | A ∨ B | A ∧ B |
+| A ˆ B | A ⊕ B | (A ∧ ¬B) ∨ (¬A ∧ B) |
+| A > B | A ⇒ B |  ¬A ∨ B  |
+| A = B | A ⇔ B | (¬A ∨ B) ∧ (¬B ∨ A) |
 
 ## Sources
 
