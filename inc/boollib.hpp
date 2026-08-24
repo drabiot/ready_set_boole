@@ -6,7 +6,7 @@
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 18:01:43 by tchartie          #+#    #+#             */
-/*   Updated: 2026/08/20 20:46:04 by tchartie         ###   ########.fr       */
+/*   Updated: 2026/08/24 20:53:38 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,42 @@ inline void	print_truth_table(const str &formula) {
 		
 		PRINT CYAN "| " MAGENTA AND eval_formula(binary_formula) AND CYAN " |" CENDL;
 	}
+}
+
+inline str	negation_normal_form(const str &formula) {
+	str		nnf = formula;
+
+	for (int i = (int)nnf.size() - 1; i >= 0; --i) {
+		if (nnf.at(i) == '!')
+			nnf.erase(nnf.begin() + i);
+		else if (nnf.at(i) == '&')
+			nnf.replace(i, 1, "|");
+		else if (nnf.at(i) == '|')
+			nnf.replace(i, 1, "&");
+		else if (nnf.at(i) >= 'A' && nnf.at(i) <= 'Z')
+			nnf.insert(i + 1, "!");
+		else if (nnf.at(i) == '>') {
+			str	lhs = str(1, static_cast<char>(nnf.at(i - 2))); 
+			str	rhs = str(1, static_cast<char>(nnf.at(i - 1)));
+
+			nnf.replace(i - 2, 3, lhs + "!" + rhs + "|");
+			i -= 2;
+		}
+		else if (nnf.at(i) == '=')
+			;
+		else if (nnf.at(i) == '^')
+			;
+		else
+			throw std::invalid_argument("Input invalid");
+	}
+
+	// AB&! = 4
+	// AB&	= 3
+	// AB|	= 2
+	// AB!|	= 1
+	// 
+
+	return (nnf);
 }
 
 #endif //BOOLLIB_HPP

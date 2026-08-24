@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ex05Tester.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/18 18:06:06 by tchartie          #+#    #+#             */
-/*   Updated: 2026/08/24 20:41:55 by tchartie         ###   ########.fr       */
+/*   Created: 2026/08/20 17:25:53 by tchartie          #+#    #+#             */
+/*   Updated: 2026/08/24 20:15:05 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "boollib.hpp"
 #include "tester.hpp"
 
-int	main(void) {
-	try {
-		adderTester();
-		multiplierTester();
-		grayCodeTester();
-		booleanEvaluationTester();
-		//badBooleanEvaluationTester();
-		truthTableTester();
-		//badTruthTableTester();
-		negationNormalFormTester();
-	} catch (const std::exception &e) {
-		ERROR RED AND e.what() CENDL;
-	}
-	return (0);
+void	negationNormalFormTester() {
+	NLINE;
+	PRINT RED "NEGATION NORMAL FORM TESTER" CENDL;
+	NLINE;
+	PRINT CYAN "RPN: AB&!   = NNF: " MAGENTA AND negation_normal_form("AB&!") CENDL;
+	PRINT CYAN "RPN: AB|!   = NNF: " MAGENTA AND negation_normal_form("AB|!") CENDL;
+	PRINT CYAN "RPN: AB>    = NNF: " MAGENTA AND negation_normal_form("AB>") CENDL;
+	PRINT CYAN "RPN: AB|C&! = NNF: " MAGENTA AND negation_normal_form("AB|C&!") CENDL;
 }
