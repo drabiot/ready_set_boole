@@ -6,7 +6,7 @@
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 18:00:38 by tchartie          #+#    #+#             */
-/*   Updated: 2026/08/25 18:10:37 by tchartie         ###   ########.fr       */
+/*   Updated: 2026/08/25 19:10:57 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,8 @@ void	negationNormalFormTester(void);
 
 //Exercice 06
 void	conjonctiveNormalFormTester(void);
+
+//Exercice 07
+void	satTester(void);
 
 #endif //TESTER_HPP

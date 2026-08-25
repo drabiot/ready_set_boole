@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ex07Tester.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/18 18:06:06 by tchartie          #+#    #+#             */
-/*   Updated: 2026/08/25 19:11:09 by tchartie         ###   ########.fr       */
+/*   Created: 2026/08/20 17:25:53 by tchartie          #+#    #+#             */
+/*   Updated: 2026/08/25 19:12:58 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "boollib.hpp"
 #include "tester.hpp"
 
-int	main(void) {
-	try {
-		adderTester();
-		multiplierTester();
-		grayCodeTester();
-		booleanEvaluationTester();
-		//badBooleanEvaluationTester();
-		truthTableTester();
-		//badTruthTableTester();
-		negationNormalFormTester();
-		conjonctiveNormalFormTester();
-		satTester();
-	} catch (const std::exception &e) {
-		ERROR RED AND e.what() CENDL;
-	}
-	return (0);
+void	satTester() {
+	NLINE;
+	PRINT RED "SAT TESTER" CENDL;
+	NLINE;
+	PRINT CYAN "RPN: AB|  : " MAGENTA AND sat("AB|") CENDL;
+	PRINT CYAN "RPN: AB&  : " MAGENTA AND sat("AB&") CENDL;
+	PRINT CYAN "RPN: AA!& : " MAGENTA AND sat("AA!&") CENDL;
+	PRINT CYAN "RPN: AA^  : " MAGENTA AND sat("AA^") CENDL;
 }

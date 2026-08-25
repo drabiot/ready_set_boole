@@ -24,6 +24,7 @@ This project is aimed around math and is an introduction to Boolean Algebra.
   - [Truth Table](#truth-table)
   - [Negation Normal Form](#negation-normal-form)
   - [Conjonctive Normal Form](#conjonctive-normal-form)
+  - [SAT](#sat)
 - [Sources](#sources)
 
 ## Use the Library
@@ -78,6 +79,7 @@ Open the project
 | [Truth Table](#truth-table) | Print the truth table of a reverse polish notation formula |
 | [Negation Normal Form](#negation-normal-form) | Return the negation normal form of a reverse polish notation formula |
 | [Conjonctive Normal Form](#conjonctive-normal-form) | Return the conjontive normal form of a reverse polish notation formula |
+| [SAT](#sat) | Return true if one of a the combination of the formula can be true. Else return false |
 
 ## Documentation
 
@@ -166,7 +168,7 @@ bool	eval_formula(const str &formula);
 
 | Time complexity | Space complexity |
 |---|---|
-| O(n) | O(n) |
+| O(N) | O(N) |
 
 ```cpp
 std::cout << eval_formula("10&") << std::endl;		// false
@@ -187,7 +189,7 @@ void	print_truth_table(const str &formula);
 
 | Time complexity | Space complexity |
 |---|---|
-| O(2^n) | O(n) |
+| O(2^N) | O(N) |
 
 ```cpp
 print_truth_table("AB&C|")
@@ -256,6 +258,24 @@ The the goal is to add distributivity. For example:
 ```cpp
 P ∨ (Q ∧ R) ≡ (P ∨ Q) ∧ (P ∨ R)
 ```
+
+### SAT
+Return true if one of a the combination of the formula can be true. Else return false.
+
+```cpp
+bool	sat(const str &formula);
+```
+
+| Time complexity | Space complexity |
+|---|---|
+| O(2^N) | O(N) |
+
+```cpp
+sat("AB&!")	// true
+sat("AA^")	// false
+```
+
+This fucntion is like the [Truth Table](#truth-table) but without the graphical aspect.
 
 ## Sources
 
