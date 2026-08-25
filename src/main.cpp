@@ -6,7 +6,7 @@
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 18:06:06 by tchartie          #+#    #+#             */
-/*   Updated: 2026/08/24 20:41:55 by tchartie         ###   ########.fr       */
+/*   Updated: 2026/08/25 18:17:49 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	main(void) {
 		truthTableTester();
 		//badTruthTableTester();
 		negationNormalFormTester();
+		conjonctiveNormalFormTester();
 	} catch (const std::exception &e) {
 		ERROR RED AND e.what() CENDL;
 	}

@@ -213,7 +213,7 @@ str	negation_normal_form(const str &formula);
 
 | Time complexity | Space complexity |
 |---|---|
-| O(1) | O(1) |
+| O(N) | O(N) |
 
 ```cpp
 nnf = negation_normal_form("AB&!")	// nnf = A!B!|
@@ -243,7 +243,7 @@ str	conjonctive_normal_form(const str &formula);
 
 | Time complexity | Space complexity |
 |---|---|
-| O(1) | O(1) |
+| O(2^N) | O(2^N) |
 
 ```cpp
 cnf = conjonctive_normal_form("AB&!")	// cnf = A!B!|

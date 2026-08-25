@@ -6,7 +6,7 @@
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 18:01:43 by tchartie          #+#    #+#             */
-/*   Updated: 2026/08/25 17:57:17 by tchartie         ###   ########.fr       */
+/*   Updated: 2026/08/25 18:45:45 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,54 +144,91 @@ inline void	print_truth_table(const str &formula) {
 	}
 }
 
-// Time complexity:  O(1)
-// Space complexity: O(1)
-inline str	negation_normal_form(const str& formula) {
-    if (formula.empty())
-		return "";
+// Time complexity:  O(N)
+// Space complexity: O(N)
+inline str negation_normal_form(const str& formula) {
+	if (formula.empty())
+		return ("");
 
-    std::vector<str>	stack;
+	std::vector<str>	stack;
 
-    for (char c : formula) {
-        if (c >= 'A' && c <= 'Z')
-            stack.push_back(str(1, c));
-        else if (c == '!') {
-            if (stack.empty())
+	for (char c : formula) {
+		if (c >= 'A' && c <= 'Z')
+			stack.push_back(str(1, c));
+		else if (c == '!') {
+			if (stack.empty())
+				throw std::invalid_argument("invalid RPN");
+			str	top = stack.back();
+			stack.pop_back();
+			stack.push_back(apply_negation(top));
+		}
+		else if (c == '&' || c == '|' || c == '>' || c == '=' || c == '^') {
+			if (stack.size() < 2)
 				throw std::invalid_argument("invalid RPN");
 
-            str	top = stack.back(); stack.pop_back();
-			
-            stack.push_back(apply_negation(top));
-        }
-        else if (c == '&' || c == '|' || c == '>' || c == '=' || c == '^') {
-            if (stack.size() < 2)
-				throw std::invalid_argument("invalid RPN");
+			str	right = stack.back();
+			stack.pop_back();
+			str	left  = stack.back();
+			stack.pop_back();
 
-            str	right = stack.back(); stack.pop_back();
-            str	left  = stack.back(); stack.pop_back();
+			if (c == '&' || c == '|')
+				stack.push_back(left + right + c);
+			else if (c == '>')
+				stack.push_back(apply_negation(left) + right + "|");
+			else if (c == '^') {
+				str	t1 = left + apply_negation(right) + "&";
+				str	t2 = apply_negation(left) + right + "&";
 
-            if (c == '&' || c == '|')
-                stack.push_back(left + right + c);
-            else if (c == '>')
-                stack.push_back(apply_negation(left) + right + "|");
-            else if (c == '^') {
-                str	t1 = left + apply_negation(right) + "&";
-                str	t2 = apply_negation(left) + right + "&";
-
-                stack.push_back(t1 + t2 + "|");
-            }
-            else if (c == '=') {
-                str	t1 = left + right + "&";
-                str	t2 = apply_negation(left) + apply_negation(right) + "&";
+				stack.push_back(t1 + t2 + "|");
+			}
+			else if (c == '=') {
+				str	t1 = left + right + "&";
+				str	t2 = apply_negation(left) + apply_negation(right) + "&";
 				
-                stack.push_back(t1 + t2 + "|");
-            }
-        }
-    }
-
-    if (stack.size() != 1)
+				stack.push_back(t1 + t2 + "|");
+			}
+		}
+	}
+	if (stack.size() != 1)
 		throw std::invalid_argument("invalid RPN");
-    return (stack.back());
+
+	return (stack.back());
+}
+
+// Time complexity:  O(2^N)
+// Space complexity: O(2^N)
+inline str conjonctive_normal_form(const str& formula) {
+	str	nnf = negation_normal_form(formula);
+	if (nnf.empty())
+		return ("");
+
+	std::vector<str>	stack;
+
+	for (char c : nnf) {
+		if (c >= 'A' && c <= 'Z')
+			stack.push_back(str(1, c));
+		else if (c == '!') {
+			if (stack.empty())
+				throw std::invalid_argument("invalid RPN");
+			stack.back() += "!";
+		}
+		else if (c == '&' || c == '|') {
+			if (stack.size() < 2)
+				throw std::invalid_argument("invalid RPN");
+
+			str	right = stack.back(); stack.pop_back();
+			str	left  = stack.back(); stack.pop_back();
+
+			if (c == '&')
+				stack.push_back(left + right + "&");
+			else
+				stack.push_back(distribute_or(left, right));
+		}
+	}
+	if (stack.size() != 1)
+		throw std::invalid_argument("invalid RPN");
+
+	return (stack.back());
 }
 
 #endif //BOOLLIB_HPP
