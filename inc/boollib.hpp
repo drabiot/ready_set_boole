@@ -6,7 +6,7 @@
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 18:01:43 by tchartie          #+#    #+#             */
-/*   Updated: 2026/08/24 20:53:38 by tchartie         ###   ########.fr       */
+/*   Updated: 2026/08/25 17:54:36 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,40 +144,52 @@ inline void	print_truth_table(const str &formula) {
 	}
 }
 
-inline str	negation_normal_form(const str &formula) {
-	str		nnf = formula;
+inline str	negation_normal_form(const str& formula) {
+    if (formula.empty())
+		return "";
 
-	for (int i = (int)nnf.size() - 1; i >= 0; --i) {
-		if (nnf.at(i) == '!')
-			nnf.erase(nnf.begin() + i);
-		else if (nnf.at(i) == '&')
-			nnf.replace(i, 1, "|");
-		else if (nnf.at(i) == '|')
-			nnf.replace(i, 1, "&");
-		else if (nnf.at(i) >= 'A' && nnf.at(i) <= 'Z')
-			nnf.insert(i + 1, "!");
-		else if (nnf.at(i) == '>') {
-			str	lhs = str(1, static_cast<char>(nnf.at(i - 2))); 
-			str	rhs = str(1, static_cast<char>(nnf.at(i - 1)));
+    std::vector<str>	stack;
 
-			nnf.replace(i - 2, 3, lhs + "!" + rhs + "|");
-			i -= 2;
-		}
-		else if (nnf.at(i) == '=')
-			;
-		else if (nnf.at(i) == '^')
-			;
-		else
-			throw std::invalid_argument("Input invalid");
-	}
+    for (char c : formula) {
+        if (c >= 'A' && c <= 'Z')
+            stack.push_back(str(1, c));
+        else if (c == '!') {
+            if (stack.empty())
+				throw std::invalid_argument("invalid RPN");
 
-	// AB&! = 4
-	// AB&	= 3
-	// AB|	= 2
-	// AB!|	= 1
-	// 
+            str	top = stack.back(); stack.pop_back();
+			
+            stack.push_back(apply_negation(top));
+        }
+        else if (c == '&' || c == '|' || c == '>' || c == '=' || c == '^') {
+            if (stack.size() < 2)
+				throw std::invalid_argument("invalid RPN");
 
-	return (nnf);
+            str	right = stack.back(); stack.pop_back();
+            str	left  = stack.back(); stack.pop_back();
+
+            if (c == '&' || c == '|')
+                stack.push_back(left + right + c);
+            else if (c == '>')
+                stack.push_back(apply_negation(left) + right + "|");
+            else if (c == '^') {
+                str	t1 = left + apply_negation(right) + "&";
+                str	t2 = apply_negation(left) + right + "&";
+
+                stack.push_back(t1 + t2 + "|");
+            }
+            else if (c == '=') {
+                str	t1 = left + right + "&";
+                str	t2 = apply_negation(left) + apply_negation(right) + "&";
+				
+                stack.push_back(t1 + t2 + "|");
+            }
+        }
+    }
+
+    if (stack.size() != 1)
+		throw std::invalid_argument("invalid RPN");
+    return (stack.back());
 }
 
 #endif //BOOLLIB_HPP

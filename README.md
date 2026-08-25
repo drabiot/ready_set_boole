@@ -211,19 +211,23 @@ str	negation_normal_form(const str &formula);
 
 | Time complexity | Space complexity |
 |---|---|
-| O(?) | O(?) |
+| O(1) | O(1) |
 
 ```cpp
 nnf = negation_normal_form("AB&!")	// nnf = A!B!|
 nnf = negation_normal_form("AB|!")	// nnf = A!B!&
 ```
 
+The goal of the NNF is to right the negation mark before a variable & not used for an expression.
+Moreover, ⊕ ⇒ ⇔, are not allowed in a NNF formula and can be replaced with other expression.
+
 | Symbol | Math Equivalent | Negation Equivalent |
 | -------- | ----------------- | --------------------- |
-| A...Z | A...Z | ¬A...¬Z |
-| !A  | ¬A | A |
-| A &  B | A ∧  B | A ∨ B |
-| A \| B | A ∨ B | A ∧ B |
+| A...Z | A...Z | A...Z |
+| !A  | ¬A | ¬A |
+| !!A  | ¬¬A | A |
+| !(A & B) | ¬(A ∧ B) | A ∨ B |
+| !(A \| B) | ¬(A ∨ B) | A ∧ B |
 | A ˆ B | A ⊕ B | (A ∧ ¬B) ∨ (¬A ∧ B) |
 | A > B | A ⇒ B |  ¬A ∨ B  |
 | A = B | A ⇔ B | (¬A ∨ B) ∧ (¬B ∨ A) |
