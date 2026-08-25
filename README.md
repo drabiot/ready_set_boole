@@ -23,6 +23,7 @@ This project is aimed around math and is an introduction to Boolean Algebra.
   - [Boolean Evaluation](#boolean-evaluation)
   - [Truth Table](#truth-table)
   - [Negation Normal Form](#negation-normal-form)
+  - [Conjonctive Normal Form](#conjonctive-normal-form)
 - [Sources](#sources)
 
 ## Use the Library
@@ -75,7 +76,8 @@ Open the project
 | [Gray Code](#gray-code) | Generate the gray code of a natural number |
 | [Boolean Evaluation](#boolean-evaluation) | Return the result of a reverse polish notation binary formula |
 | [Truth Table](#truth-table) | Print the truth table of a reverse polish notation formula |
-| [Negation Normal Form](#negation-normal-form) | Return the negation normal form of a reverse polish notation formula. |
+| [Negation Normal Form](#negation-normal-form) | Return the negation normal form of a reverse polish notation formula |
+| [Conjonctive Normal Form](#conjonctive-normal-form) | Return the conjontive normal form of a reverse polish notation formula |
 
 ## Documentation
 
@@ -230,7 +232,30 @@ Moreover, ⊕ ⇒ ⇔, are not allowed in a NNF formula and can be replaced with
 | !(A \| B) | ¬(A ∨ B) | A ∧ B |
 | A ˆ B | A ⊕ B | (A ∧ ¬B) ∨ (¬A ∧ B) |
 | A > B | A ⇒ B |  ¬A ∨ B  |
-| A = B | A ⇔ B | (¬A ∨ B) ∧ (¬B ∨ A) |
+| A = B | A ⇔ B | (A ∧ B) ∨ (¬A ∧ ¬B) |
+
+### CONJONCTIVE NORMAL FORM
+Return the conjonctive normal form of a reverse polish notation formula.
+
+```cpp
+str	conjonctive_normal_form(const str &formula);
+```
+
+| Time complexity | Space complexity |
+|---|---|
+| O(1) | O(1) |
+
+```cpp
+cnf = conjonctive_normal_form("AB&!")	// cnf = A!B!|
+cnf = conjonctive_normal_form("AB|!")	// cnf = A!B!&
+```
+
+To transforn a RPN into a CNF expression, we need to pass it through the NNF converter to put the negation sign on the ight spot and remove unwanted sign.
+The the goal is to add distributivity. For example:
+
+```cpp
+P ∨ (Q ∧ R) ≡ (P ∨ Q) ∧ (P ∨ R)
+```
 
 ## Sources
 
@@ -240,3 +265,4 @@ Moreover, ⊕ ⇒ ⇔, are not allowed in a NNF formula and can be replaced with
 - Compute Gray code of a natural number https://recognitionphysics.org/encyclopedia/patterns-gray-code-axioms-gray-code-one-bit-property/
 - Learn what's a truth table https://sites.millersville.edu/bikenaga/math-proof/truth-tables/truth-tables.html
 - Truth table generator https://web.stanford.edu/class/cs103/tools/truth-table-tool/
+- Converting CNF https://personal.cis.strath.ac.uk/robert.atkey/cs208/converting-to-cnf.html

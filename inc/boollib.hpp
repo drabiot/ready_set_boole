@@ -6,7 +6,7 @@
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 18:01:43 by tchartie          #+#    #+#             */
-/*   Updated: 2026/08/25 17:54:36 by tchartie         ###   ########.fr       */
+/*   Updated: 2026/08/25 17:57:17 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,6 +144,8 @@ inline void	print_truth_table(const str &formula) {
 	}
 }
 
+// Time complexity:  O(1)
+// Space complexity: O(1)
 inline str	negation_normal_form(const str& formula) {
     if (formula.empty())
 		return "";
