@@ -26,6 +26,7 @@ This project is aimed around math and is an introduction to Boolean Algebra.
   - [Conjonctive Normal Form](#conjonctive-normal-form)
   - [SAT](#sat)
   - [Powerset](#powerset)
+  - [Set Evaluation](#set-evaluation)
 - [Sources](#sources)
 
 ## Use the Library
@@ -82,6 +83,7 @@ Open the project
 | [Conjonctive Normal Form](#conjonctive-normal-form) | Return the conjontive normal form of a reverse polish notation formula |
 | [SAT](#sat) | Return true if one of a the combination of the formula can be true. Else return false |
 | [Powerset](#powerset) | Return the powerset of a list of integer |
+| [Set Evaluation](#set-evaluation) | Take a RPN formula and sets & return the resulting set |
 
 ## Documentation
 
@@ -299,6 +301,38 @@ std::vector<std::vector<int>>	test_powerset = powerset(test);
 
 A powerset always have n^2 subset. So if you have a list of 3 element, you have 3^2 (8) subset.
 The goal of the powerset is to create all subset possible, without forgetting the null list and the full list.
+
+### SET EVALUATION
+Take a RPN formula and sets & return the resulting set.
+
+```cpp
+std::vector<int>	eval_set(const str &formula, std::vector<std::vector<int>> sets);
+```
+
+| Time complexity | Space complexity |
+|---|---|
+| O(n^2) | O(n) |
+
+```cpp
+std::vector<std::vector<int>> sets = {
+		{0, 1, 2},
+		{0, 3, 4},
+	};
+std::vector<int> result = eval_set("AB&", sets);
+
+//result = {0}
+```
+
+The goal is to use sets and perform the operation.
+
+| Sign | Meaning |
+|:-:|---|
+| & | Intersection: elements present in both sets |
+| \| | Union: elements present in either set |
+| ! | Complement: elements not present in the set |
+| ^ | Symmetric difference: elements present in one set but not both |
+| > | Implication: elements outside the first set or inside the second set |
+| = | Equivalence: elements present in both sets or in neither set |
 
 ## Sources
 

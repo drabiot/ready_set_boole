@@ -6,7 +6,7 @@
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 18:01:43 by tchartie          #+#    #+#             */
-/*   Updated: 2026/09/08 18:29:58 by tchartie         ###   ########.fr       */
+/*   Updated: 2026/09/08 18:38:21 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -279,6 +279,8 @@ inline std::vector<std::vector<int>>	powerset(std::vector<int> set) {
 	return (ret_set);
 }
 
+// Time complexity:  O(n^2)
+// Space complexity: O(n)
 inline std::vector<int>	eval_set(const str &formula, std::vector<std::vector<int>> sets) {
 	std::vector<int>				uni;
 	std::vector<std::vector<int>>	stack;
