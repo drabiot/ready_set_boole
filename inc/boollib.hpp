@@ -6,7 +6,7 @@
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 18:01:43 by tchartie          #+#    #+#             */
-/*   Updated: 2026/09/08 19:13:31 by tchartie         ###   ########.fr       */
+/*   Updated: 2026/09/08 19:25:34 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -335,6 +335,8 @@ inline std::vector<int>	eval_set(const str &formula, std::vector<std::vector<int
 	return (stack.back());
 }
 
+// Time complexity:  O(1)
+// Space complexity: O(1)
 inline double	map(uint16_t x, uint16_t y) {
 	uint32_t	z = (interleaveZeros(static_cast<uint32_t>(y)) << 1) | interleaveZeros(static_cast<uint32_t>(x));
 

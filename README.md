@@ -27,6 +27,7 @@ This project is aimed around math and is an introduction to Boolean Algebra.
   - [SAT](#sat)
   - [Powerset](#powerset)
   - [Set Evaluation](#set-evaluation)
+  - [Curve](#curve)
 - [Sources](#sources)
 
 ## Use the Library
@@ -84,6 +85,7 @@ Open the project
 | [SAT](#sat) | Return true if one of a the combination of the formula can be true. Else return false |
 | [Powerset](#powerset) | Return the powerset of a list of integer |
 | [Set Evaluation](#set-evaluation) | Take a RPN formula and sets & return the resulting set |
+| [Curve](#curve) | Take 2 values and return a unique floating value with it. |
 
 ## Documentation
 
@@ -333,6 +335,27 @@ The goal is to use sets and perform the operation.
 | ^ | Symmetric difference: elements present in one set but not both |
 | > | Implication: elements outside the first set or inside the second set |
 | = | Equivalence: elements present in both sets or in neither set |
+
+### CURVE
+Take 2 values and return a unique floating value with it.
+
+```cpp
+double	map(uint16_t x, uint16_t y);
+```
+
+| Time complexity | Space complexity |
+|---|---|
+| O(1) | O(1) |
+
+```cpp
+std::cout << map(0, 0) << endl;			//0
+std::cout << map(65535, 65535) << endl;	//1
+std::cout << map(1, 0) << endl;			//2.32831e-10
+std::cout << map(0, 1) << endl;			//4.65661e-10
+```
+
+We can use a lot of algorithm to realize this exercice. I used Z-order Curve algo.
+The goal is to transform the value into a 16 bit value then divide the result by 4294967295. Then you have a unique value between 0 & 1.
 
 ## Sources
 
