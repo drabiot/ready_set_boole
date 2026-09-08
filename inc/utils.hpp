@@ -6,7 +6,7 @@
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 18:07:53 by tchartie          #+#    #+#             */
-/*   Updated: 2026/08/25 18:43:14 by tchartie         ###   ########.fr       */
+/*   Updated: 2026/09/08 18:36:02 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,73 @@ inline str	distribute_or(const str& left, const str& right) {
 	}
 
 	return (left + right + "|");
+}
+
+inline bool contains(const std::vector<int> &v, int value) {
+    for (size_t i = 0; i < v.size(); i++) {
+        if (v[i] == value) {
+            return (true);
+        }
+    }
+    return (false);
+}
+
+inline std::vector<int> set_and(const std::vector<int> &a, const std::vector<int> &b) {
+	std::vector<int>	result;
+	
+	for (size_t i = 0; i < a.size(); i++) {
+		if (contains(b, a[i])) {
+			result.push_back(a[i]);
+		}
+	}
+	return (result);
+}
+
+inline std::vector<int> set_or(const std::vector<int> &a, const std::vector<int> &b) {
+	std::vector<int>	result = a;
+	
+	for (size_t i = 0; i < b.size(); i++) {
+		if (!contains(result, b[i])) {
+			result.push_back(b[i]);
+		}
+	}
+	return (result);
+}
+
+inline std::vector<int> set_not(const std::vector<int> &universe, const std::vector<int> &a) {
+	std::vector<int>	result;
+	
+	for (size_t i = 0; i < universe.size(); i++) {
+		if (!contains(a, universe[i])) {
+			result.push_back(universe[i]);
+		}
+	}
+	return (result);
+}
+
+inline std::vector<int> set_xor(const std::vector<int> &a, const std::vector<int> &b) {
+	std::vector<int>	unionAB = set_or(a, b);
+	std::vector<int>	interAB = set_and(a, b);
+	std::vector<int>	result;
+	
+	for (size_t i = 0; i < unionAB.size(); i++) {
+		if (!contains(interAB, unionAB[i])) {
+			result.push_back(unionAB[i]);
+		}
+	}
+	return (result);
+}
+
+inline std::vector<int> set_implies(const std::vector<int> &universe, const std::vector<int> &a, const std::vector<int> &b) {
+	std::vector<int> notA = set_not(universe, a);
+	return set_or(notA, b);
+}
+
+inline std::vector<int> set_equiv(const std::vector<int> &universe, const std::vector<int> &a, const std::vector<int> &b) {
+	std::vector<int>	aImpliesB = set_implies(universe, a, b);
+	std::vector<int>	bImpliesA = set_implies(universe, b, a);
+	
+	return (set_and(aImpliesB, bImpliesA));
 }
 
 #endif //UTILS_HPP

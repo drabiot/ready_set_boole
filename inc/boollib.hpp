@@ -6,7 +6,7 @@
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 18:01:43 by tchartie          #+#    #+#             */
-/*   Updated: 2026/09/08 17:33:29 by tchartie         ###   ########.fr       */
+/*   Updated: 2026/09/08 18:29:58 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -277,6 +277,58 @@ inline std::vector<std::vector<int>>	powerset(std::vector<int> set) {
 		ret_set.push_back(list);
 	}
 	return (ret_set);
+}
+
+inline std::vector<int>	eval_set(const str &formula, std::vector<std::vector<int>> sets) {
+	std::vector<int>				uni;
+	std::vector<std::vector<int>>	stack;
+
+	for (size_t i = 0; i < sets.size(); ++i)
+		std::sort(sets[i].begin(), sets[i].end());
+	for (size_t i = 0; i < sets.size(); ++i) {
+		std::vector<int>	tmp;
+
+		std::set_union(uni.begin(), uni.end(), sets[i].begin(), sets[i].end(), std::back_inserter(tmp));
+		uni = tmp;
+	}
+	for (char c : formula) {
+		if (c >= 'A' && c <= 'Z') {
+			int	index = c - 'A';
+
+			if (index < 0 || (size_t)index >= sets.size())
+				throw std::invalid_argument("Set");
+			stack.push_back(sets[index]);
+		} else if (c == '!') {
+			if (stack.empty())
+				throw std::invalid_argument("Invalid expression");
+			
+			std::vector<int>	a = stack.back(); stack.pop_back();
+
+			stack.push_back(set_not(uni, a));
+		} else if (c == '&' || c == '|' || c == '^' || c == '>' || c == '=') {
+			if (stack.size() < 2)
+				throw std::invalid_argument("Invalid operator");
+			
+			std::vector<int>	b = stack.back(); stack.pop_back();
+			std::vector<int>	a = stack.back(); stack.pop_back();
+
+			if (c == '&')
+				stack.push_back(set_and(a, b));
+			else if (c == '|')
+				stack.push_back(set_or(a, b));
+			else if (c == '^')
+				stack.push_back(set_xor(a, b));
+			else if (c == '>')
+				stack.push_back(set_implies(uni, a, b));
+			else
+				stack.push_back(set_equiv(uni, a, b));
+		} else
+			throw std::invalid_argument("Wrong formula");
+	}
+	if (stack.size() != 1)
+		throw std::invalid_argument("Wrong formula");
+
+	return (stack.back());
 }
 
 #endif //BOOLLIB_HPP
