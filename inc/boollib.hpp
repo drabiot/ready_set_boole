@@ -6,7 +6,7 @@
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 18:01:43 by tchartie          #+#    #+#             */
-/*   Updated: 2026/09/08 15:10:52 by tchartie         ###   ########.fr       */
+/*   Updated: 2026/09/08 17:33:29 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -261,6 +261,8 @@ inline bool	sat(const str &formula) {
 	return (false);
 }
 
+// Time complexity:  O(n^2)
+// Space complexity: O(n^2)
 inline std::vector<std::vector<int>>	powerset(std::vector<int> set) {
 	size_t							subset = 1 << set.size();
 	std::vector<std::vector<int>>	ret_set;

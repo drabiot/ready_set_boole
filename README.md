@@ -25,6 +25,7 @@ This project is aimed around math and is an introduction to Boolean Algebra.
   - [Negation Normal Form](#negation-normal-form)
   - [Conjonctive Normal Form](#conjonctive-normal-form)
   - [SAT](#sat)
+  - [Powerset](#powerset)
 - [Sources](#sources)
 
 ## Use the Library
@@ -80,6 +81,7 @@ Open the project
 | [Negation Normal Form](#negation-normal-form) | Return the negation normal form of a reverse polish notation formula |
 | [Conjonctive Normal Form](#conjonctive-normal-form) | Return the conjontive normal form of a reverse polish notation formula |
 | [SAT](#sat) | Return true if one of a the combination of the formula can be true. Else return false |
+| [Powerset](#powerset) | Return the powerset of a list of integer |
 
 ## Documentation
 
@@ -218,8 +220,8 @@ str	negation_normal_form(const str &formula);
 | O(n) | O(n) |
 
 ```cpp
-nnf = negation_normal_form("AB&!")	// nnf = A!B!|
-nnf = negation_normal_form("AB|!")	// nnf = A!B!&
+nnf = negation_normal_form("AB&!");	// nnf = A!B!|
+nnf = negation_normal_form("AB|!");	// nnf = A!B!&
 ```
 
 The goal of the NNF is to right the negation mark before a variable & not used for an expression.
@@ -248,8 +250,8 @@ str	conjonctive_normal_form(const str &formula);
 | O(n) | O(n) |
 
 ```cpp
-cnf = conjonctive_normal_form("AB&!")	// cnf = A!B!|
-cnf = conjonctive_normal_form("AB|!")	// cnf = A!B!&
+cnf = conjonctive_normal_form("AB&!");	// cnf = A!B!|
+cnf = conjonctive_normal_form("AB|!");	// cnf = A!B!&
 ```
 
 To transforn a RPN into a CNF expression, we need to pass it through the NNF converter to put the negation sign on the ight spot and remove unwanted sign.
@@ -271,11 +273,32 @@ bool	sat(const str &formula);
 | O(n) | O(n) |
 
 ```cpp
-sat("AB&!")	// true
-sat("AA^")	// false
+sat("AB&!");	// true
+sat("AA^");		// false
 ```
 
-This fucntion is like the [Truth Table](#truth-table) but without the graphical aspect.
+This function is like the [Truth Table](#truth-table) but without the graphical aspect.
+
+### POWERSET
+Return the powerset of a list of integer.
+
+```cpp
+std::vector<std::vector<int>>	powerset(std::vector<int> set);
+```
+
+| Time complexity | Space complexity |
+|---|---|
+| O(n^2) | O(n^2) |
+
+```cpp
+std::vector<int>				test = {1,2,3};
+std::vector<std::vector<int>>	test_powerset = powerset(test);
+
+//test_powerset = {{}, {1}, {2}, {1, 2}, {3}, {1, 3}, {2, 3}, {1, 2, 3}}
+```
+
+A powerset always have n^2 subset. So if you have a list of 3 element, you have 3^2 (8) subset.
+The goal of the powerset is to create all subset possible, without forgetting the null list and the full list.
 
 ## Sources
 
