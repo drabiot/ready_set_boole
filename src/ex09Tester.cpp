@@ -6,7 +6,7 @@
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/20 17:25:53 by tchartie          #+#    #+#             */
-/*   Updated: 2026/09/08 18:36:33 by tchartie         ###   ########.fr       */
+/*   Updated: 2026/09/08 19:15:42 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,4 @@ void	evalSetTester() {
 	};
 	std::vector<int> res3 = eval_set("A!", sets3);
 	print_vector(res3);
-
 }

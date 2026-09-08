@@ -345,3 +345,5 @@ The goal is to use sets and perform the operation.
 - Converting CNF https://personal.cis.strath.ac.uk/robert.atkey/cs208/converting-to-cnf.html
 - What's a powerset https://youtu.be/0XNSBoqG-1s
 - Bitwise operator in powerset computing https://youtu.be/LqKaUv1G3_I
+- Meaning and usage of operator in eval_set https://github.com/jmcheon/ready_set_boole#ex09
+- Using z-curve to flatern a 3D curve https://stackoverflow.com/questions/12157685/z-order-curve-coordinates

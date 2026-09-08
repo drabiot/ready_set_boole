@@ -6,7 +6,7 @@
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 18:00:38 by tchartie          #+#    #+#             */
-/*   Updated: 2026/09/08 18:27:10 by tchartie         ###   ########.fr       */
+/*   Updated: 2026/09/08 19:15:07 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,8 @@ void	powersetTester(void);
 
 //Exercice 09
 void	evalSetTester(void);
+
+//Exercice 10
+void	curveTester(void);
 
 #endif //TESTER_HPP

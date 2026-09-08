@@ -6,7 +6,7 @@
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 18:07:53 by tchartie          #+#    #+#             */
-/*   Updated: 2026/09/08 18:36:02 by tchartie         ###   ########.fr       */
+/*   Updated: 2026/09/08 19:12:52 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ typedef std::string str;
 
 # define cref(type) const type &
 # define ref(type) type &
+
+# define MAX_VALUE ((1ULL << 32) - 1)
 
 inline void	split_rpn_binary(const str& expr, str& left, str& right) {
 	if (expr.empty())
@@ -168,6 +170,14 @@ inline std::vector<int> set_equiv(const std::vector<int> &universe, const std::v
 	std::vector<int>	bImpliesA = set_implies(universe, b, a);
 	
 	return (set_and(aImpliesB, bImpliesA));
+}
+
+inline static	uint32_t interleaveZeros(uint32_t x) {
+	x = (x | (x << 8)) & 0x00FF00FF;
+	x = (x | (x << 4)) & 0x0F0F0F0F;
+	x = (x | (x << 2)) & 0x33333333;
+	x = (x | (x << 1)) & 0x55555555;
+	return (x);
 }
 
 #endif //UTILS_HPP
