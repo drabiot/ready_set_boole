@@ -168,7 +168,7 @@ bool	eval_formula(const str &formula);
 
 | Time complexity | Space complexity |
 |---|---|
-| O(N) | O(N) |
+| O(n) | O(n) |
 
 ```cpp
 std::cout << eval_formula("10&") << std::endl;		// false
@@ -189,7 +189,7 @@ void	print_truth_table(const str &formula);
 
 | Time complexity | Space complexity |
 |---|---|
-| O(2^N) | O(N) |
+| O(n^3) | O(n) |
 
 ```cpp
 print_truth_table("AB&C|")
@@ -215,7 +215,7 @@ str	negation_normal_form(const str &formula);
 
 | Time complexity | Space complexity |
 |---|---|
-| O(N) | O(N) |
+| O(n) | O(n) |
 
 ```cpp
 nnf = negation_normal_form("AB&!")	// nnf = A!B!|
@@ -245,7 +245,7 @@ str	conjonctive_normal_form(const str &formula);
 
 | Time complexity | Space complexity |
 |---|---|
-| O(2^N) | O(2^N) |
+| O(n) | O(n) |
 
 ```cpp
 cnf = conjonctive_normal_form("AB&!")	// cnf = A!B!|
@@ -268,7 +268,7 @@ bool	sat(const str &formula);
 
 | Time complexity | Space complexity |
 |---|---|
-| O(2^N) | O(N) |
+| O(n) | O(n) |
 
 ```cpp
 sat("AB&!")	// true
@@ -286,3 +286,5 @@ This fucntion is like the [Truth Table](#truth-table) but without the graphical 
 - Learn what's a truth table https://sites.millersville.edu/bikenaga/math-proof/truth-tables/truth-tables.html
 - Truth table generator https://web.stanford.edu/class/cs103/tools/truth-table-tool/
 - Converting CNF https://personal.cis.strath.ac.uk/robert.atkey/cs208/converting-to-cnf.html
+- What's a powerset https://youtu.be/0XNSBoqG-1s
+- Bitwise operator in powerset computing https://youtu.be/LqKaUv1G3_I

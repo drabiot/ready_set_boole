@@ -6,7 +6,7 @@
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 18:01:43 by tchartie          #+#    #+#             */
-/*   Updated: 2026/08/25 19:10:33 by tchartie         ###   ########.fr       */
+/*   Updated: 2026/09/08 15:10:52 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ inline bool	eval_formula(const str &formula) {
 	return (stack.top());
 }
 
-// Time complexity:  O(2^n)
+// Time complexity:  O(n^3)
 // Space complexity: O(n)
 inline void	print_truth_table(const str &formula) {
 	if (formula.find_first_not_of("ABCDEFGHIJKLMNOPQRSTUVWXY!&|^>=") != formula.npos)
@@ -144,8 +144,8 @@ inline void	print_truth_table(const str &formula) {
 	}
 }
 
-// Time complexity:  O(N)
-// Space complexity: O(N)
+// Time complexity:  O(n)
+// Space complexity: O(n)
 inline str negation_normal_form(const str& formula) {
 	if (formula.empty())
 		return ("");
@@ -195,8 +195,8 @@ inline str negation_normal_form(const str& formula) {
 	return (stack.back());
 }
 
-// Time complexity:  O(2^N)
-// Space complexity: O(2^N)
+// Time complexity:  O(n)
+// Space complexity: O(n)
 inline str conjonctive_normal_form(const str& formula) {
 	str	nnf = negation_normal_form(formula);
 	if (nnf.empty())
@@ -231,7 +231,7 @@ inline str conjonctive_normal_form(const str& formula) {
 	return (stack.back());
 }
 
-// Time complexity:  O(2^n)
+// Time complexity:  O(n)
 // Space complexity: O(n)
 inline bool	sat(const str &formula) {
 	if (formula.find_first_not_of("ABCDEFGHIJKLMNOPQRSTUVWXY!&|^>=") != formula.npos)
@@ -259,6 +259,22 @@ inline bool	sat(const str &formula) {
 			return (true);
 	}
 	return (false);
+}
+
+inline std::vector<std::vector<int>>	powerset(std::vector<int> set) {
+	size_t							subset = 1 << set.size();
+	std::vector<std::vector<int>>	ret_set;
+
+	for (size_t val = 0; val < subset; ++val) {
+		std::vector<int>	list;
+
+		for (size_t i = 0; i < set.size(); ++i) {
+			if (val & (1 << i))
+				list.push_back(set[i]);
+		}
+		ret_set.push_back(list);
+	}
+	return (ret_set);
 }
 
 #endif //BOOLLIB_HPP

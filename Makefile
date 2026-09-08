@@ -6,7 +6,7 @@
 #    By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/18 17:57:42 by tchartie          #+#    #+#              #
-#    Updated: 2026/08/25 19:11:23 by tchartie         ###   ########.fr        #
+#    Updated: 2026/09/08 15:00:25 by tchartie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,7 @@ NAMES				=	main.cpp \
 						ex05Tester.cpp \
 						ex06Tester.cpp \
 						ex07Tester.cpp \
-						#ex08Tester.cpp \
+						ex08Tester.cpp \
 						#ex09Tester.cpp \
 						#ex10Tester.cpp \
 						#ex11Tester.cpp
