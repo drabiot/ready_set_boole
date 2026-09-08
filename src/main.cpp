@@ -6,7 +6,7 @@
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 18:06:06 by tchartie          #+#    #+#             */
-/*   Updated: 2026/09/08 19:16:42 by tchartie         ###   ########.fr       */
+/*   Updated: 2026/09/08 19:35:06 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	main(void) {
 		powersetTester();
 		evalSetTester();
 		curveTester();
+		reverseCurveTester();
 	} catch (const std::exception &e) {
 		ERROR RED AND e.what() CENDL;
 	}

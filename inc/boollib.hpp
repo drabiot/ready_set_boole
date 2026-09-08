@@ -6,7 +6,7 @@
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 18:01:43 by tchartie          #+#    #+#             */
-/*   Updated: 2026/09/08 19:25:34 by tchartie         ###   ########.fr       */
+/*   Updated: 2026/09/08 19:38:07 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -341,6 +341,21 @@ inline double	map(uint16_t x, uint16_t y) {
 	uint32_t	z = (interleaveZeros(static_cast<uint32_t>(y)) << 1) | interleaveZeros(static_cast<uint32_t>(x));
 
 	return (static_cast<double>(z) / MAX_VALUE);
+}
+
+// Time complexity:  O(n)
+// Space complexity: O(1)
+inline std::pair<uint16_t, uint16_t>	reverse_map(double n) {
+    uint32_t	z = static_cast<uint32_t>(n * MAX_VALUE + 0.5);
+    uint16_t	x = 0;
+    uint16_t	y = 0;
+
+    for (int i = 0; i < 16; ++i) {
+        x |= ((z >> (2 * i)) & 1) << i;
+        y |= ((z >> (2 * i + 1)) & 1) << i;
+    }
+
+    return {x, y};
 }
 
 

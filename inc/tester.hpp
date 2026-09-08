@@ -6,7 +6,7 @@
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 18:00:38 by tchartie          #+#    #+#             */
-/*   Updated: 2026/09/08 19:15:07 by tchartie         ###   ########.fr       */
+/*   Updated: 2026/09/08 19:35:00 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,8 @@ void	evalSetTester(void);
 
 //Exercice 10
 void	curveTester(void);
+
+//Exercice 11
+void	reverseCurveTester(void);
 
 #endif //TESTER_HPP
