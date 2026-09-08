@@ -6,7 +6,7 @@
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 18:01:43 by tchartie          #+#    #+#             */
-/*   Updated: 2026/09/08 18:38:21 by tchartie         ###   ########.fr       */
+/*   Updated: 2026/09/08 18:55:46 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -311,8 +311,10 @@ inline std::vector<int>	eval_set(const str &formula, std::vector<std::vector<int
 			if (stack.size() < 2)
 				throw std::invalid_argument("Invalid operator");
 			
-			std::vector<int>	b = stack.back(); stack.pop_back();
-			std::vector<int>	a = stack.back(); stack.pop_back();
+			std::vector<int>	b = stack.back();
+			stack.pop_back();
+			std::vector<int>	a = stack.back();
+			stack.pop_back();
 
 			if (c == '&')
 				stack.push_back(set_and(a, b));
