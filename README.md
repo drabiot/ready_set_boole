@@ -28,6 +28,7 @@ This project is aimed around math and is an introduction to Boolean Algebra.
   - [Powerset](#powerset)
   - [Set Evaluation](#set-evaluation)
   - [Curve](#curve)
+  - [Inverse Function](#inverse-function)
 - [Sources](#sources)
 
 ## Use the Library
@@ -38,11 +39,13 @@ Clone the project
   git clone https://github.com/drabiot/ready_set_boole.git
 ```
 
-Include the lib
+Generate the lib
 
 ```bash
-  ./ready_set_boole/inc/boollib.hpp
+  make lib
 ```
+
+And then include the archive to your compilation
 
 ## Run Locally the Tester
 
@@ -85,7 +88,8 @@ Open the project
 | [SAT](#sat) | Return true if one of a the combination of the formula can be true. Else return false |
 | [Powerset](#powerset) | Return the powerset of a list of integer |
 | [Set Evaluation](#set-evaluation) | Take a RPN formula and sets & return the resulting set |
-| [Curve](#curve) | Take 2 values and return a unique floating value with it. |
+| [Curve](#curve) | Take 2 values and return an unique floating value with it |
+| [Inverse Function](#inverse-function) | Take a float value and return an unique pair of value  |
 
 ## Documentation
 
@@ -356,6 +360,25 @@ std::cout << map(0, 1) << endl;			//4.65661e-10
 
 We can use a lot of algorithm to realize this exercice. I used Z-order Curve algo.
 The goal is to transform the value into a 16 bit value then divide the result by 4294967295. Then you have a unique value between 0 & 1.
+
+
+### INVERSE FUNCTION
+Take a float value and return an unique pair of value.
+
+```cpp
+std::pair<uint16_t, uint16_t>	reverse_map(double n);
+```
+
+| Time complexity | Space complexity |
+|---|---|
+| O(n) | O(1) |
+
+```cpp
+std::cout << reverse_map(0) << endl;					//{0, 0}
+std::cout << reverse_map(1) << endl;					//{65535, 65535}
+std::cout << reverse_map(0,000000000232831) << endl;	//{1, 0}
+std::cout << reverse_map(0,000000000465661) << endl;	//{0, 1}
+```
 
 ## Sources
 
