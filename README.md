@@ -380,6 +380,8 @@ std::cout << reverse_map(0,000000000232831) << endl;	//{1, 0}
 std::cout << reverse_map(0,000000000465661) << endl;	//{0, 1}
 ```
 
+This is the inverse of the previous exercice [Curve](#curve). Instead of encoding a value, we decode the value we encode earlier.
+
 ## Sources
 
 - Bitwise operation explained https://en.wikipedia.org/wiki/Bitwise_operation
