@@ -39,6 +39,12 @@ Clone the project
   git clone https://github.com/drabiot/ready_set_boole.git
 ```
 
+Go to the project directory
+
+```bash
+  cd ready_set_boole
+```
+
 Generate the lib
 
 ```bash
