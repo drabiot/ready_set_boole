@@ -6,16 +6,16 @@
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/09 13:57:30 by tchartie          #+#    #+#             */
-/*   Updated: 2026/09/09 13:57:40 by tchartie         ###   ########.fr       */
+/*   Updated: 2026/09/15 13:26:24 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "boollib.hpp"
 
-// Time complexity:  O(n)
+// Time complexity:  O(2^n)
 // Space complexity: O(n)
 bool	sat(const str &formula) {
-	if (formula.find_first_not_of("ABCDEFGHIJKLMNOPQRSTUVWXY!&|^>=") != formula.npos)
+	if (formula.find_first_not_of("ABCDEFGHIJKLMNOPQRSTUVWXYZ!&|^>=") != formula.npos)
 		throw std::invalid_argument("Input invalid");
 	
 	std::vector<char> vars;

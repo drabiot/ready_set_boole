@@ -103,12 +103,12 @@ Open the project
 Add two natural numbers together an return the value.
 
 ```cpp
-int	adder(int a, int b);
+unsigned int	adder(unsigned int a, unsigned int b);
 ```
 
 | Time complexity | Space complexity |
 |---|---|
-| O(1) | O(1) |
+| O(log n) | O(1) |
 
 ```cpp
 sum = adder(21, 12); // sum = 33
@@ -143,7 +143,7 @@ The idea is to mimic the manual process of binary addition, where we calculate t
 Multiply two natural numbers together an return the value.
 
 ```cpp
-int	multiplier(int a, int b);
+unsigned int	multiplier(unsigned int a, unsigned int b);
 ```
 
 | Time complexity | Space complexity |
@@ -205,7 +205,7 @@ void	print_truth_table(const str &formula);
 
 | Time complexity | Space complexity |
 |---|---|
-| O(n^3) | O(n) |
+| O(2^n) | O(n) |
 
 ```cpp
 print_truth_table("AB&C|")
@@ -284,7 +284,7 @@ bool	sat(const str &formula);
 
 | Time complexity | Space complexity |
 |---|---|
-| O(n) | O(n) |
+| O(2^n) | O(n) |
 
 ```cpp
 sat("AB&!");	// true
@@ -302,7 +302,7 @@ std::vector<std::vector<int>>	powerset(std::vector<int> set);
 
 | Time complexity | Space complexity |
 |---|---|
-| O(n^2) | O(n^2) |
+| O(n^2) | O(2^n) |
 
 ```cpp
 std::vector<int>				test = {1,2,3};
@@ -377,7 +377,7 @@ std::pair<uint16_t, uint16_t>	reverse_map(double n);
 
 | Time complexity | Space complexity |
 |---|---|
-| O(n) | O(1) |
+| O(1) | O(1) |
 
 ```cpp
 std::cout << reverse_map(0) << endl;					//{0, 0}

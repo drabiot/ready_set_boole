@@ -6,7 +6,7 @@
 #    By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/08/18 17:57:42 by tchartie          #+#    #+#              #
-#    Updated: 2026/09/09 14:05:43 by tchartie         ###   ########.fr        #
+#    Updated: 2026/09/15 13:24:27 by tchartie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ NAMES				=	adder.cpp \
 						eval_formula.cpp \
 						print_truth_table.cpp \
 						negation_normal_form.cpp \
-						conjonctive_normal_form.cpp \
+						conjunctive_normal_form.cpp \
 						sat.cpp \
 						powerset.cpp \
 						eval_set.cpp \

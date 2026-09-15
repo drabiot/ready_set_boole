@@ -6,7 +6,7 @@
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/09 13:55:33 by tchartie          #+#    #+#             */
-/*   Updated: 2026/09/09 13:55:46 by tchartie         ###   ########.fr       */
+/*   Updated: 2026/09/15 13:08:04 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,18 @@ bool	eval_formula(const str &formula) {
 		else if (c == '!') {
 			if (stack.empty())
 				throw std::invalid_argument("Too few arguments for '!'");
+				
 			bool	operand = stack.top();
 			stack.pop();
 			stack.push(!operand);
 		}
-		else if (!iswspace(c)) {
+		else {
 			if (stack.size() < 2)
 				throw std::invalid_argument("Too few arguments for binary operator");
 
-			float rhs = stack.top();
+			bool rhs = stack.top();
 			stack.pop();
-			float lhs = stack.top();
+			bool lhs = stack.top();
 			stack.pop();
 
 			switch (c) {

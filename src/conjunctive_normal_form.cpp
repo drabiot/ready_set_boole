@@ -6,7 +6,7 @@
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/09 13:57:02 by tchartie          #+#    #+#             */
-/*   Updated: 2026/09/09 14:02:42 by tchartie         ###   ########.fr       */
+/*   Updated: 2026/09/15 13:23:39 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static str	distribute_or(const str& left, const str& right) {
 
 // Time complexity:  O(n)
 // Space complexity: O(n)
-str conjonctive_normal_form(const str& formula) {
+str conjunctive_normal_form(const str& formula) {
 	str	nnf = negation_normal_form(formula);
 	if (nnf.empty())
 		return ("");

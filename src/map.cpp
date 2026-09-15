@@ -6,11 +6,12 @@
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/09 13:59:39 by tchartie          #+#    #+#             */
-/*   Updated: 2026/09/09 14:03:46 by tchartie         ###   ########.fr       */
+/*   Updated: 2026/09/15 13:31:18 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "boollib.hpp"
+
 static	uint32_t interleaveZeros(uint32_t x) {
 	x = (x | (x << 8)) & 0x00FF00FF;
 	x = (x | (x << 4)) & 0x0F0F0F0F;

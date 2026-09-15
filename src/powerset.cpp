@@ -6,14 +6,14 @@
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/09 13:58:13 by tchartie          #+#    #+#             */
-/*   Updated: 2026/09/09 13:58:26 by tchartie         ###   ########.fr       */
+/*   Updated: 2026/09/15 13:29:12 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "boollib.hpp"
 
 // Time complexity:  O(n^2)
-// Space complexity: O(n^2)
+// Space complexity: O(2^n)
 std::vector<std::vector<int>>	powerset(std::vector<int> set) {
 	size_t							subset = 1 << set.size();
 	std::vector<std::vector<int>>	ret_set;

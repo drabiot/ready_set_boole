@@ -6,7 +6,7 @@
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/20 17:25:53 by tchartie          #+#    #+#             */
-/*   Updated: 2026/08/25 19:04:13 by tchartie         ###   ########.fr       */
+/*   Updated: 2026/09/15 13:25:03 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	truthTableTester() {
 	PRINT YELLOW "       NNF" CENDL;
 	print_truth_table(negation_normal_form("AB&C|"));
 	PRINT YELLOW "       CNN" CENDL;
-	print_truth_table(conjonctive_normal_form("AB&C|"));
+	print_truth_table(conjunctive_normal_form("AB&C|"));
 	NLINE;
 	PRINT MAGENTA " (A ∧ B) ∨ A" CENDL;
 	print_truth_table("AB&A|");

@@ -6,15 +6,15 @@
 /*   By: tchartie <tchartie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/09 13:47:52 by tchartie          #+#    #+#             */
-/*   Updated: 2026/09/09 13:48:42 by tchartie         ###   ########.fr       */
+/*   Updated: 2026/09/15 12:55:07 by tchartie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "boollib.hpp"
 
-// Time complexity:  O(1)
+// Time complexity:  O(log n)
 // Space complexity: O(1)
-int	adder(int a, int b) {
+unsigned int	adder(unsigned int a, unsigned int b) {
 	while (b != 0) {
 		int carry = a & b;
 		a = a ^ b;
